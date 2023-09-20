@@ -1,0 +1,14 @@
+span {
+        animation: translateAnimation 2s forwards; 
+        transform: translateX(100%); 
+        overflow: hidden;
+      }
+      
+      @keyframes translateAnimation {
+        0% {
+          transform: translateX(150%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }

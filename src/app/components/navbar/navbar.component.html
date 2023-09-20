@@ -1,19 +1,19 @@
 <nav class="w-full h-[10vh] bg-blue-400 flex items-center justify-end">
-<div class="flex w-3/4 justify-start text-3xl font-Mooli font-bold text-white">
-    <span class="ml-10">
-        Dashboard-PruebaTecnica
-    </span>
-</div>
-<ul class="flex w-1/4 justify-around">
+  <div
+    class="flex w-3/4 justify-start text-3xl font-Mooli font-bold text-white"
+  >
+    <span class="ml-10"> Dashboard-PruebaTecnica </span>
+  </div>
+  <ul class="flex w-1/4 justify-around">
     <li *ngFor="let elemento of buttonNavbar">
-        <button m-button class="h-10 w-10">
-            <mat-icon class="mat-icon-custom-size">{{ elemento }}</mat-icon>
-        </button>
+      <button m-button class="h-10 w-10">
+        <mat-icon class="mat-icon-custom-size">{{ elemento }}</mat-icon>
+      </button>
     </li>
     <li>
-        <button m-button class="h-10 w-10" (click)="logout()">
-            <mat-icon class="mat-icon-custom-size">logout</mat-icon>
-        </button>
+      <button m-button class="h-10 w-10" (click)="logout()">
+        <mat-icon class="mat-icon-custom-size">logout</mat-icon>
+      </button>
     </li>
-</ul>
+  </ul>
 </nav>

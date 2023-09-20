@@ -10,7 +10,7 @@ import { environment } from 'environment';
 export class AuthService {
   private apiUrl:string = environment.apiUrl;
   isAuthenticated:boolean = false
-  loginError = signal(false);
+  loginError = false;
   constructor(private http: HttpClient, private router: Router) {}
 
   login(Credentials: Credentials) {
@@ -25,7 +25,7 @@ export class AuthService {
             localStorage.setItem('authToken', token);
         }
     }, (error:any)=> {
-
+        this.loginError = true;
         console.log(error)
     });
   }

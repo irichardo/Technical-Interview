@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-notification',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification.component.css']
 })
 export class NotificationComponent {
+  auth: AuthService;
+  constructor(authService: AuthService) {
+    this.auth = authService;
+  }
 
 }
