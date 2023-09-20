@@ -1,0 +1,10 @@
+section{
+    width: 100vw;
+    height: 90vh;
+    background-color: rgb(178, 227, 250);
+}
+.welcome-card{
+    background-image: url('../../../assets/svg/Cloudy.svg');
+    background-size: cover;
+    background-position: center;
+  }
