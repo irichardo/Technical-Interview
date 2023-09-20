@@ -6,6 +6,7 @@ import { AuthGuard } from 'src/app/guards/auth.guard';
 import { AuthLoginGuard } from 'src/app/guards/authLogin.guard';
 
 const routes: Routes = [
+  // Acceso a las rutas, tambien hacemos lazyLoading para no precargar rutas, asi tambien nos aseguramos de que no tengan acceso alguno.
   {path:'', component:AuthComponent, canActivate:[AuthLoginGuard], loadChildren:()=>import('./init/init.module').then(m=>m.InitModule)},
   {path:'dashboard', component:DashboardComponent, canActivate: [AuthGuard], loadChildren:()=>import('./dashboard/dashboard.module').then(m=>m.DashboardModule)}
 ];

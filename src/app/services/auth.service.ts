@@ -19,20 +19,28 @@ export class AuthService {
         password:Credentials.password
     }).subscribe((response:any)=>{
         const token = response.accessToken;
+        // Solo en caso de recibir el token el usuario es considerado autenticado
         if(response && token){
+            // cambio is Authenticated a true para que el guard no me regrese al login. 
             this.isAuthenticated = true;
+            // Luego voy a la ruta Dasboard
             this.router.navigate(['/dashboard']);
+            //Finalmente fuardo el token en el local storage hasta que el usuario se desloguee
             localStorage.setItem('authToken', token);
         }
     }, (error:any)=> {
+      // Saldra una notificacion push para avisar al usurio de que su login ha sido rechazado
         this.loginError = true;
         console.log(error)
     });
   }
 
   logout(){
+    // Borro el token del localStorage
     localStorage.removeItem('authToken');
+    // Paso isAuth a false
     this.isAuthenticated = false;
+    // Lo envio al path de inicio
     this.router.navigate(['/']);
   }
 }

@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
 })
 
 export class FormComponent {
-  authenticated:boolean = false;
   authForm: FormGroup;
   credentialsValid={
     notifyEmailError:false,
@@ -34,12 +33,8 @@ export class FormComponent {
     })
   }
 
-  isAuthenticated():boolean{
-    return this.authenticated;
-  }
-
-
     sendForm() {
+      // Si el email y la contraseña son invalidos saldrá una notificacion respectiva
     if (!this.authForm.valid){
       this.validEmail();
       this.validPassword();
@@ -47,9 +42,11 @@ export class FormComponent {
     }
     this.credentials.username = this.authForm.value.email;
     this.credentials.password = this.authForm.value.password;
+    // Pasa eso hago el login con las credenciales escritas
     this.authService.login(this.credentials)
   }
 
+  // Notificacion Push para Password e Email.
   validEmail(){
     if(!this.authForm.controls['email'].valid){
       this.credentialsValid.notifyEmailError = true;

@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
+  // Exporto el authService para usar el logOut
   constructor(private authService: AuthService){}
   buttonNavbar: string[]=['account_circle',  'settings']
   logout():void{

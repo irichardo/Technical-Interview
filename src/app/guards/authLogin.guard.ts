@@ -10,6 +10,7 @@ export class AuthLoginGuard implements CanActivate {
 
   canActivate(): boolean {
     if (this.authService.isAuthenticated) {
+      // De estar logeado el usuario no se le perimitira ver la parte del login
       this.router.navigate(['/dashboard']);
       return false;
     } else {
